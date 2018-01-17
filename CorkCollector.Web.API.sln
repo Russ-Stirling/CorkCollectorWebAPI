@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorkCollector.Web.API", "Co
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorkCollector.Data", "CorkCollector.Data\CorkCollector.Data.csproj", "{A44135E9-5AFB-4320-80C3-101CFAE72386}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CorkCollector.Utility", "CorkCollector.Utility\CorkCollector.Utility.csproj", "{964E4872-1CBF-45AF-BF87-12C969EE1129}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A44135E9-5AFB-4320-80C3-101CFAE72386}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A44135E9-5AFB-4320-80C3-101CFAE72386}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A44135E9-5AFB-4320-80C3-101CFAE72386}.Release|Any CPU.Build.0 = Release|Any CPU
+		{964E4872-1CBF-45AF-BF87-12C969EE1129}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{964E4872-1CBF-45AF-BF87-12C969EE1129}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{964E4872-1CBF-45AF-BF87-12C969EE1129}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{964E4872-1CBF-45AF-BF87-12C969EE1129}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
