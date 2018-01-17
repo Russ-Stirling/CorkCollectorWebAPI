@@ -1,0 +1,5 @@
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Data\bin\Debug\CorkCollector.Data.dll
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Data\bin\Debug\CorkCollector.Data.pdb
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Data\obj\Debug\CorkCollector.Data.csproj.CoreCompileInputs.cache
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Data\obj\Debug\CorkCollector.Data.dll
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Data\obj\Debug\CorkCollector.Data.pdb
