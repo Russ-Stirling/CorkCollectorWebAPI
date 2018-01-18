@@ -13,23 +13,19 @@ namespace CorkCollector.Utility
     {
         static void Main(string[] args)
         {
-            var Cert = new X509Certificate2();
-            Cert.Import("D:\\CorkCollector\\DBServer\\CorkCollectorTest.pfx", "Cork123", X509KeyStorageFlags.DefaultKeySet);
-            var store = new DocumentStore
+            var options = new Options();
+
+            if (!options.Headless)
             {
-                Database = "CorkCollector",
-                Urls = new string[] {"https://a.corkcollector.dbs.local.ravendb.net:8080"},
-                Certificate = Cert
+                //string path = System.IO.Directory.GetCurrentDirectory();
+                var menu = new DisplayMenu();
+                bool done = false;
 
-            };
-
-            store.Initialize();
-
-            var x = store.OpenSession();
-
-            x.Store(new Wine());
-
-            x.SaveChanges();
+                while (!done)
+                {
+                    done = menu.run();
+                }
+            }
 
         }
     }

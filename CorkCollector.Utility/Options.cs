@@ -11,6 +11,9 @@ namespace CorkCollector.Utility
             HelpText = "Run application with parameters, without the menu")]
         public bool Headless { get; set; }
 
+        [Option('f', "filepath", Default = "NO_PATH", HelpText = "The path to the csv file containing data")]
+            public string FilePath { get; set; }
+
         //[Option('r', "read", Required = true,
         //HelpText = "Input file to be processed.")]
         //public string InputFile { get; set; }
