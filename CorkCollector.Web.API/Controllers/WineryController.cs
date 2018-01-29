@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -22,7 +23,7 @@ namespace CorkCollector.Web.API.Controllers
         }
 
         // GET api/winery       route: api/winery       returns: All wineries
-        public string Get()
+        public List<Winery> Get()
         {
             List<Winery> wineries = new List<Winery>();
             using (var session = ravenStore.OpenSession())
@@ -30,11 +31,11 @@ namespace CorkCollector.Web.API.Controllers
                 wineries = session.Query<Winery>().ToList();
             }
 
-            return JsonConvert.SerializeObject(wineries);
+            return wineries;
         }
 
         // GET api/winery/id         route: api/winery?id=wineries/[id]     Returns: SPecified winery
-        public string Get(string id)
+        public Winery Get(string id)
         {
             Winery winery = new Winery();
             using (var session = ravenStore.OpenSession())
@@ -42,7 +43,24 @@ namespace CorkCollector.Web.API.Controllers
                 winery = session.Load<Winery>(id);
             }
 
-            return JsonConvert.SerializeObject(winery);
+            return winery;
+        }
+
+        public HttpResponseMessage Post(Review review, string wineryId)
+        {
+            Winery winery;
+            using (var session = ravenStore.OpenSession())
+            {
+                winery = session.Load<Winery>(wineryId);
+                if (winery.Reviews == null)
+                    winery.Reviews = new List<Review>();
+                winery.Reviews.Add(review);
+                session.SaveChanges();
+            }
+
+            var response = new HttpResponseMessage(HttpStatusCode.Created);
+
+            return response;
         }
     }
 }

@@ -8,6 +8,7 @@ namespace CorkCollector.Data
 {
     public class Winery
     {
+        //public string _id { get; set; }
         public List<Review> Reviews { get; set; }
         public bool HasMenu { get; set; }
         public double TastingPrice { get; set; }

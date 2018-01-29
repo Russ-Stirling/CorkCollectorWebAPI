@@ -1,6 +1,3 @@
-D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\obj\Debug\CorkCollector.Test.csprojResolveAssemblyReference.cache
-D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\obj\Debug\CorkCollector.Test.csproj.CorkCollector.Test.dll.config
-D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\obj\Debug\CorkCollector.Test.csproj.CoreCompileInputs.cache
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\bin\Debug\ApplicationInsights.config
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\bin\Debug\CorkCollector.Test.dll.config
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\bin\Debug\CorkCollector.Test.dll
@@ -147,5 +144,8 @@ D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\bin\Debug\System.Web.Web
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\bin\Debug\System.Web.WebPages.xml
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\bin\Debug\Antlr3.Runtime.pdb
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\bin\Debug\System.Web.WebPages.Deployment.xml
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\obj\Debug\CorkCollector.Test.csprojResolveAssemblyReference.cache
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\obj\Debug\CorkCollector.Test.csproj.CorkCollector.Test.dll.config
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\obj\Debug\CorkCollector.Test.csproj.CoreCompileInputs.cache
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\obj\Debug\CorkCollector.Test.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\obj\Debug\CorkCollector.Test.pdb
