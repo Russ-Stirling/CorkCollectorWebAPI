@@ -167,6 +167,97 @@ namespace CorkCollector.Test
             Assert.Equal(review.Rating, testReview.Rating);
             Assert.Equal(review.Text, testReview.Text);
         }
+
+
+        [Fact]
+        public void UsersGetAll()
+        {
+            UserController userController = new UserController()
+            {
+                ravenStore = RavenStore
+            };
+
+            var users = userController.Get();
+
+            Assert.NotEmpty(users);
+        }
+        [Fact]
+        public void UserGetOne()
+        {
+            UserController userController = new UserController()
+            {
+                ravenStore = RavenStore
+            };
+
+            var user = userController.Get("users/1-A");
+
+            Assert.NotNull(user);
+        }
+        [Fact]
+        public void UserGetOneDoesntExist()
+        {
+            UserController userController = new UserController()
+            {
+                ravenStore = RavenStore
+            };
+
+            var user = userController.Get("wesaklghp9a8y78eorqu");
+
+            Assert.Null(user);
+        }
+
+        [Fact]
+        public void UserAddFriend()
+        {
+            UserController userController = new UserController()
+            {
+                ravenStore = RavenStore
+            };
+
+            string friendId = "users/2-A";
+
+            var response = userController.Post("users/1-A", friendId);
+
+            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+
+            var user = userController.Get("users/1-A");
+
+            var friend = user.Friends.FirstOrDefault(x => x == friendId);
+
+            Assert.NotNull(friend);
+        }
+
+        [Fact]
+        public void UserAddNew()
+        {
+            UserController userController = new UserController()
+            {
+                ravenStore = RavenStore
+            };
+
+            UserProfile testUser = new UserProfile()
+            {
+                Friends = new List<string>(),
+                _id = Guid.NewGuid(),
+                CellarBottles =  new List<CellarBottle>(),
+                CheckIns = new List<string>(),
+                Email = "Test@gmail.com",
+                Password = "test",
+                PersonalComments = new List<PersonalComment>(),
+                Tastings = new List<string>(),
+                Username = "TestingUser"
+                
+            };
+
+            var response = userController.Post(testUser);
+
+            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+
+            var user = userController.Get("users/1-A");
+
+            Assert.NotNull(user);
+            
+        }
     }
 
 }

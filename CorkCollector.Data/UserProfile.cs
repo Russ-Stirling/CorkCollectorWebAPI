@@ -18,6 +18,7 @@ namespace CorkCollector.Data
         public List<PersonalComment> PersonalComments { get; set; }
         public List<CellarBottle> CellarBottles { get; set; }
         
-        
+        
+
     }
 }
