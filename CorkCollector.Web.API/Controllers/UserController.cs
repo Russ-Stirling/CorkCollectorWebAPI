@@ -12,22 +12,17 @@ using Raven.Client.Documents;
 
 namespace CorkCollector.Web.API.Controllers
 {
-    public class UserController : ApiController
+    public class UserController : CorkCollectorBaseController
     {
-        public static DocumentStore ravenStore;
-        public UserController()
+        public UserController() : base()
         {
-            ravenStore = WebApiApplication.RavenStore;
+
         }
 
-        public UserController(DocumentStore _ravenStore=null)
+        public UserController(DocumentStore _ravenStore = null): base(_ravenStore)
         {
-            if (_ravenStore == null)
-            { ravenStore = WebApiApplication.RavenStore; }
-            else
-            { ravenStore = _ravenStore; }
+            
         }
-
         // GET api/wine       route: api/wine       returns: All wineries
         public List<UserProfile> Get()
         {

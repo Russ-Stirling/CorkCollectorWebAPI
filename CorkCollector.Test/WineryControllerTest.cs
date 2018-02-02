@@ -12,28 +12,31 @@ namespace CorkCollector.Test
 {
     public class WineryControllerTest: TestCaseBase
     {
+        private readonly WineryController _wineryController;
+
+        public WineryControllerTest() : base()
+        {
+            _wineryController = new WineryController(RavenStore);
+        }
         [Fact]
         public void WineryGetAll()
         {
-            WineryController wineryController = new WineryController(RavenStore);
-            var wineries = wineryController.Get();
+            var wineries = _wineryController.Get();
 
             Assert.NotEmpty(wineries);
         }
         [Fact]
         public void WineryGetOne()
         {
-            WineryController wineryController = new WineryController(RavenStore);
-            var winery = wineryController.Get("wineries/1-A");
+            var winery = _wineryController.Get("wineries/1-A");
 
             Assert.NotNull(winery);
         }
         [Fact]
         public void WineryGetOneDoesntExist()
         {
-            WineryController wineryController = new WineryController(RavenStore);
 
-            var winery = wineryController.Get("wesaklghp9a8y78eorqu");
+            var winery = _wineryController.Get("wesaklghp9a8y78eorqu");
 
             Assert.Null(winery);
         }
@@ -41,7 +44,6 @@ namespace CorkCollector.Test
         [Fact]
         public void WineryPostReview()
         {
-            WineryController wineryController = new WineryController(RavenStore);
 
             Review testReview = new Review()
             {
@@ -51,11 +53,11 @@ namespace CorkCollector.Test
                 UserName = "TestReviewer"
             };
 
-            var response = wineryController.Post(testReview, "wineries/1-A");
+            var response = _wineryController.Post(testReview, "wineries/1-A");
 
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
 
-            var winery = wineryController.Get("wineries/1-A");
+            var winery = _wineryController.Get("wineries/1-A");
 
             var review = winery.Reviews.FirstOrDefault(x => x.UserId == "1-A");
 

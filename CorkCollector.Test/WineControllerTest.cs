@@ -12,30 +12,33 @@ namespace CorkCollector.Test
 {
     public class WineControllerTest : TestCaseBase
     {
+        private readonly WineController _wineController;
+
+        public WineControllerTest() : base()
+        {
+            _wineController = new WineController(RavenStore);
+        }
         [Fact]
         public void WineGetAll()
         {
-            WineController wineController = new WineController(RavenStore);
 
-            var wines = wineController.Get();
+            var wines = _wineController.Get();
 
             Assert.NotEmpty(wines);
         }
         [Fact]
         public void WineGetOne()
         {
-            WineController wineController = new WineController(RavenStore);
 
-            var wine = wineController.Get("wines/1-A");
+            var wine = _wineController.Get("wines/1-A");
 
             Assert.NotNull(wine);
         }
         [Fact]
         public void WineGetOneDoesntExist()
         {
-            WineController wineController = new WineController(RavenStore);
 
-            var wine = wineController.Get("wesaklghp9a8y78eorqu");
+            var wine = _wineController.Get("wesaklghp9a8y78eorqu");
 
             Assert.Null(wine);
         }
@@ -43,7 +46,6 @@ namespace CorkCollector.Test
         [Fact]
         public void WinePostReview()
         {
-            WineController wineController = new WineController(RavenStore);
 
             Review testReview = new Review()
             {
@@ -53,11 +55,11 @@ namespace CorkCollector.Test
                 UserName = "TestReviewer"
             };
 
-            var response = wineController.Post(testReview, "wines/1-A");
+            var response = _wineController.Post(testReview, "wines/1-A");
 
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
 
-            var wine = wineController.Get("wines/1-A");
+            var wine = _wineController.Get("wines/1-A");
 
             var review = wine.Reviews.FirstOrDefault(x => x.UserId == "1-A");
 

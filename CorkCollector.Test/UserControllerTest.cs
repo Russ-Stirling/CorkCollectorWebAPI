@@ -12,30 +12,34 @@ namespace CorkCollector.Test
 {
     public class UserControllerTest: TestCaseBase
     {
+        private readonly UserController _userController;
+
+        public UserControllerTest() : base()
+        {
+            _userController = new UserController(RavenStore);
+        }
+        
         [Fact]
         public void UsersGetAll()
         {
-            UserController userController = new UserController(RavenStore);
 
-            var users = userController.Get();
+            var users = _userController.Get();
 
             Assert.NotEmpty(users);
         }
         [Fact]
         public void UserGetOne()
         {
-            UserController userController = new UserController(RavenStore);
 
-            var user = userController.Get("UserProfiles/1-A");
+            var user = _userController.Get("UserProfiles/1-A");
 
             Assert.NotNull(user);
         }
         [Fact]
         public void UserGetOneDoesntExist()
         {
-            UserController userController = new UserController(RavenStore);
 
-            var user = userController.Get("wesaklghp9a8y78eorqu");
+            var user = _userController.Get("wesaklghp9a8y78eorqu");
 
             Assert.Null(user);
         }
@@ -43,15 +47,14 @@ namespace CorkCollector.Test
         [Fact]
         public void UserAddFriend()
         {
-            UserController userController = new UserController(RavenStore);
 
             string friendId = "UserProfiles/2-A";
 
-            var response = userController.Post("UserProfiles/1-A", friendId);
+            var response = _userController.Post("UserProfiles/1-A", friendId);
 
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
 
-            var user = userController.Get("UserProfiles/1-A");
+            var user = _userController.Get("UserProfiles/1-A");
 
             var friend = user.Friends.FirstOrDefault(x => x == friendId);
 
@@ -61,7 +64,6 @@ namespace CorkCollector.Test
         [Fact]
         public void UserAddNew()
         {
-            UserController userController = new UserController(RavenStore);
 
             Guid userId = Guid.NewGuid();
             string newUsername = string.Format("Test{0}", userId);
@@ -81,11 +83,11 @@ namespace CorkCollector.Test
 
             };
 
-            var response = userController.Post(testUser);
+            var response = _userController.Post(testUser);
 
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
 
-            var user = userController.Get().FirstOrDefault(x=> x.Username == newUsername);
+            var user = _userController.Get().FirstOrDefault(x=> x.Username == newUsername);
 
             Assert.NotNull(user);
 
