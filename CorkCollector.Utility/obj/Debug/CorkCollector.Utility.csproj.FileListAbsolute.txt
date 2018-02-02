@@ -1,6 +1,7 @@
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\CorkCollector.Utility.exe.config
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\CorkCollector.Utility.exe
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\CorkCollector.Utility.pdb
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\Microsoft.Win32.Primitives.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\netstandard.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\System.AppContext.dll
@@ -66,7 +67,6 @@ D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\System.Runt
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\System.Runtime.Extensions.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\System.Runtime.Handles.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\System.Runtime.InteropServices.dll
-D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\System.Runtime.InteropServices.RuntimeInformation.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\System.Runtime.Numerics.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\System.Runtime.Serialization.Formatters.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Utility\bin\Debug\System.Runtime.Serialization.Json.dll

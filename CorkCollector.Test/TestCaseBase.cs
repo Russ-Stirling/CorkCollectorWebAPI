@@ -39,10 +39,7 @@ namespace CorkCollector.Test
         [Fact]
         public void WineryGetAll()
         {
-            WineryController wineryController = new WineryController()
-            {
-                ravenStore = RavenStore
-            };
+            WineryController wineryController = new WineryController(RavenStore);
             var wineries = wineryController.Get();
 
             Assert.NotEmpty(wineries);
@@ -50,10 +47,7 @@ namespace CorkCollector.Test
         [Fact]
         public void WineryGetOne()
         {
-            WineryController wineryController = new WineryController()
-            {
-                ravenStore = RavenStore
-            };
+            WineryController wineryController = new WineryController(RavenStore);
             var winery = wineryController.Get("wineries/1-A");
 
             Assert.NotNull(winery);
@@ -61,10 +55,7 @@ namespace CorkCollector.Test
         [Fact]
         public void WineryGetOneDoesntExist()
         {
-            WineryController wineryController = new WineryController()
-            {
-                ravenStore = RavenStore
-            };
+            WineryController wineryController = new WineryController(RavenStore);
 
             var winery = wineryController.Get("wesaklghp9a8y78eorqu");
 
@@ -74,10 +65,7 @@ namespace CorkCollector.Test
         [Fact]
         public void WineryPostReview()
         {
-            WineryController wineryController = new WineryController()
-            {
-                ravenStore = RavenStore
-            };
+            WineryController wineryController = new WineryController(RavenStore);
 
             Review testReview = new Review()
             {
@@ -104,10 +92,7 @@ namespace CorkCollector.Test
         [Fact]
         public void WineGetAll()
         {
-            WineController wineController = new WineController()
-            {
-                ravenStore = RavenStore
-            };
+            WineController wineController = new WineController(RavenStore);
 
             var wines  = wineController.Get();
 
@@ -116,10 +101,7 @@ namespace CorkCollector.Test
         [Fact]
         public void WineGetOne()
         {
-            WineController wineController = new WineController()
-            {
-                ravenStore = RavenStore
-            };
+            WineController wineController = new WineController(RavenStore);
 
             var wine = wineController.Get("wines/1-A");
 
@@ -128,10 +110,7 @@ namespace CorkCollector.Test
         [Fact]
         public void WineGetOneDoesntExist()
         {
-            WineController wineController = new WineController()
-            {
-                ravenStore = RavenStore
-            };
+            WineController wineController = new WineController(RavenStore);
 
             var wine = wineController.Get("wesaklghp9a8y78eorqu");
 
@@ -141,10 +120,7 @@ namespace CorkCollector.Test
         [Fact]
         public void WinePostReview()
         {
-            WineController wineController = new WineController()
-            {
-                ravenStore = RavenStore
-            };
+            WineController wineController = new WineController(RavenStore);
 
             Review testReview = new Review()
             {
@@ -172,10 +148,7 @@ namespace CorkCollector.Test
         [Fact]
         public void UsersGetAll()
         {
-            UserController userController = new UserController()
-            {
-                ravenStore = RavenStore
-            };
+            UserController userController = new UserController(RavenStore);
 
             var users = userController.Get();
 
@@ -184,10 +157,7 @@ namespace CorkCollector.Test
         [Fact]
         public void UserGetOne()
         {
-            UserController userController = new UserController()
-            {
-                ravenStore = RavenStore
-            };
+            UserController userController = new UserController(RavenStore);
 
             var user = userController.Get("users/1-A");
 
@@ -196,10 +166,7 @@ namespace CorkCollector.Test
         [Fact]
         public void UserGetOneDoesntExist()
         {
-            UserController userController = new UserController()
-            {
-                ravenStore = RavenStore
-            };
+            UserController userController = new UserController(RavenStore);
 
             var user = userController.Get("wesaklghp9a8y78eorqu");
 
@@ -209,10 +176,7 @@ namespace CorkCollector.Test
         [Fact]
         public void UserAddFriend()
         {
-            UserController userController = new UserController()
-            {
-                ravenStore = RavenStore
-            };
+            UserController userController = new UserController(RavenStore);
 
             string friendId = "users/2-A";
 
@@ -230,10 +194,7 @@ namespace CorkCollector.Test
         [Fact]
         public void UserAddNew()
         {
-            UserController userController = new UserController()
-            {
-                ravenStore = RavenStore
-            };
+            UserController userController = new UserController(RavenStore);
 
             UserProfile testUser = new UserProfile()
             {

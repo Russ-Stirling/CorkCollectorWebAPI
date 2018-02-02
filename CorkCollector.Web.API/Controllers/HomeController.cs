@@ -10,7 +10,7 @@ namespace CorkCollector.Web.API.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = Server.MapPath("CorkCollectorTest.pfx"); ;
 
             return View();
         }

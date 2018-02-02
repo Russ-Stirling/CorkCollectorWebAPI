@@ -8,16 +8,24 @@ using System.Web.Http;
 using System.Web.Mvc;
 using CorkCollector.Data;
 using Raven.Client.Documents;
+//using Raven.Client.Documents;
 
 namespace CorkCollector.Web.API.Controllers
 {
     public class UserController : ApiController
     {
-        public DocumentStore ravenStore;
+        public static DocumentStore ravenStore;
         public UserController()
         {
-            if (ravenStore == null)
+            ravenStore = WebApiApplication.RavenStore;
+        }
+
+        public UserController(DocumentStore _ravenStore=null)
+        {
+            if (_ravenStore == null)
             { ravenStore = WebApiApplication.RavenStore; }
+            else
+            { ravenStore = _ravenStore; }
         }
 
         // GET api/wine       route: api/wine       returns: All wineries

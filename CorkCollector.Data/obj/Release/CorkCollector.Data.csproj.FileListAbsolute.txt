@@ -1,0 +1,6 @@
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Data\bin\Release\CorkCollector.Data.dll
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Data\bin\Release\CorkCollector.Data.pdb
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Data\obj\Release\CorkCollector.Data.csprojResolveAssemblyReference.cache
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Data\obj\Release\CorkCollector.Data.dll
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Data\obj\Release\CorkCollector.Data.pdb
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Data\obj\Release\CorkCollector.Data.csproj.CoreCompileInputs.cache

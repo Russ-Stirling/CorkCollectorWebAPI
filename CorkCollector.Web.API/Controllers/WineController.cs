@@ -14,11 +14,19 @@ namespace CorkCollector.Web.API.Controllers
 {
     public class WineController : ApiController
     {
-        public DocumentStore ravenStore;
+        public static DocumentStore ravenStore;
+
         public WineController()
         {
-            if (ravenStore == null)
+            ravenStore = WebApiApplication.RavenStore;
+        }
+
+        public WineController(DocumentStore _ravenStore=null)
+        {
+            if (_ravenStore == null)
             { ravenStore = WebApiApplication.RavenStore; }
+            else
+            { ravenStore = _ravenStore; }
         }
 
         // GET api/wine       route: api/wine       returns: All wineries
