@@ -18,5 +18,7 @@ namespace CorkCollector.Data
         public string[] HoursOfOperation { get; set; }
         public string PhoneNumber { get; set; }
         public string WineryName { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 }

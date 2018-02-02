@@ -85,6 +85,9 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestCaseBase.cs" />
+    <Compile Include="UserControllerTest.cs" />
+    <Compile Include="WineControllerTest.cs" />
+    <Compile Include="WineryControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
