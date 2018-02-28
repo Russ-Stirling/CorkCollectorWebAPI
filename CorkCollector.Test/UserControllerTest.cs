@@ -10,87 +10,87 @@ using Xunit;
 
 namespace CorkCollector.Test
 {
-    public class UserControllerTest: TestCaseBase
-    {
-        private readonly UserController _userController;
+    //public class UserControllerTest: TestCaseBase
+    //{
+    //    private readonly UserController _userController;
 
-        public UserControllerTest() : base()
-        {
-            _userController = new UserController(RavenStore);
-        }
+    //    public UserControllerTest() : base()
+    //    {
+    //        _userController = new UserController(RavenStore);
+    //    }
         
-        [Fact]
-        public void UsersGetAll()
-        {
+    //    [Fact]
+    //    public void UsersGetAll()
+    //    {
 
-            var users = _userController.Get();
+    //        var users = _userController.Get();
 
-            Assert.NotEmpty(users);
-        }
-        [Fact]
-        public void UserGetOne()
-        {
+    //        Assert.NotEmpty(users);
+    //    }
+    //    [Fact]
+    //    public void UserGetOne()
+    //    {
 
-            var user = _userController.Get("UserProfiles/1-A");
+    //        var user = _userController.Get("UserProfiles/1-A");
 
-            Assert.NotNull(user);
-        }
-        [Fact]
-        public void UserGetOneDoesntExist()
-        {
+    //        Assert.NotNull(user);
+    //    }
+    //    [Fact]
+    //    public void UserGetOneDoesntExist()
+    //    {
 
-            var user = _userController.Get("wesaklghp9a8y78eorqu");
+    //        var user = _userController.Get("wesaklghp9a8y78eorqu");
 
-            Assert.Null(user);
-        }
+    //        Assert.Null(user);
+    //    }
 
-        [Fact]
-        public void UserAddFriend()
-        {
+    //    [Fact]
+    //    public void UserAddFriend()
+    //    {
 
-            string friendId = "UserProfiles/2-A";
+    //        string friendId = "UserProfiles/2-A";
 
-            var response = _userController.Post("UserProfiles/1-A", friendId);
+    //        var response = _userController.Post("UserProfiles/1-A", friendId);
 
-            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+    //        Assert.Equal(HttpStatusCode.Created, response.StatusCode);
 
-            var user = _userController.Get("UserProfiles/1-A");
+    //        var user = _userController.Get("UserProfiles/1-A");
 
-            var friend = user.Friends.FirstOrDefault(x => x == friendId);
+    //        var friend = user.Friends.FirstOrDefault(x => x == friendId);
 
-            Assert.NotNull(friend);
-        }
+    //        Assert.NotNull(friend);
+    //    }
 
-        [Fact]
-        public void UserAddNew()
-        {
+    //    [Fact]
+    //    public void UserAddNew()
+    //    {
 
-            Guid userId = Guid.NewGuid();
-            string newUsername = string.Format("Test{0}", userId);
+    //        Guid userId = Guid.NewGuid();
+    //        string newUsername = string.Format("Test{0}", userId);
 
 
-            UserProfile testUser = new UserProfile()
-            {
-                Friends = new List<string>(),
-                _id = userId,
-                CellarBottles = new List<CellarBottle>(),
-                CheckIns = new List<string>(),
-                Email = string.Format("{0}@gmail.com",newUsername),
-                Password = "test",
-                PersonalComments = new List<PersonalComment>(),
-                Tastings = new List<string>(),
-                Username = newUsername
+    //        UserProfile testUser = new UserProfile()
+    //        {
+    //            Friends = new List<string>(),
+    //            _id = userId,
+    //            CellarBottles = new List<CellarBottle>(),
+    //            CheckIns = new List<string>(),
+    //            Email = string.Format("{0}@gmail.com",newUsername),
+    //            Password = "test",
+    //            PersonalComments = new List<PersonalComment>(),
+    //            Tastings = new List<string>(),
+    //            Username = newUsername
 
-            };
+    //        };
 
-            var response = _userController.Post(testUser);
+    //        var response = _userController.Post(testUser);
 
-            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+    //        Assert.Equal(HttpStatusCode.Created, response.StatusCode);
 
-            var user = _userController.Get().FirstOrDefault(x=> x.Username == newUsername);
+    //        var user = _userController.Get().FirstOrDefault(x=> x.Username == newUsername);
 
-            Assert.NotNull(user);
+    //        Assert.NotNull(user);
 
-        }
-    }
+    //    }
+    //}
 }

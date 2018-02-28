@@ -31,10 +31,7 @@ namespace CorkCollector.Web.API
             Cert = new X509Certificate2();
 
 
-
-            //string target = "CorkCollectorTest.pfx";
-            //string path = string.Format("{0}\\{1}", Directory.GetCurrentDirectory(), target);
-            //"C:\CertificateFiles\CorkCollectorTest.pfx"
+            
             
             string path = ConfigurationManager.AppSettings["CertificatePath"];
             if (!File.Exists(path))
