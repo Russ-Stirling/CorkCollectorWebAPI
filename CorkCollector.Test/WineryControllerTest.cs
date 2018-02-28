@@ -42,6 +42,35 @@ namespace CorkCollector.Test
         }
 
         [Fact]
+        public void WineryPostWinery()
+        {
+
+            Winery testWinery = new Winery()
+            {
+                HasMenu = true,
+                TastingPrice = 50,
+                Rating = 4,
+                Address = "290 John St E, Niagara-on-the-Lake, ON L0S 1J0",
+                CheckInRadius = 250,
+                HoursOfOperation = new string[] {"9-20", "9-20", "9-20", "9-20", "9-20", "11-19", "11-19"},
+                PhoneNumber = "519-872-1556",
+                WineryName = "Peller Estates Winery and Restaurant",
+                Latitude = 43.238662,
+                Longitude = -79.067035,
+                Reviews = new List<Review>()
+            };
+
+            var response = _wineryController.Post(testWinery);
+
+            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+
+            var winery = _wineryController.Get("wineries/1-A");
+
+            Assert.NotNull(winery);
+        }
+
+
+        [Fact]
         public void WineryPostReview()
         {
 

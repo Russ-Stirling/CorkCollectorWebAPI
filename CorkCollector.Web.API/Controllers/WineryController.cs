@@ -65,5 +65,19 @@ namespace CorkCollector.Web.API.Controllers
 
             return response;
         }
+
+        public HttpResponseMessage Post(Winery newWinery)
+        {
+            Winery winery = newWinery;
+            using (var session = ravenStore.OpenSession())
+            {
+                session.Store(winery);
+                session.SaveChanges();
+            }
+
+            var response = new HttpResponseMessage(HttpStatusCode.Created);
+
+            return response;
+        }
     }
 }

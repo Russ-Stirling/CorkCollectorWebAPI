@@ -49,5 +49,8 @@
     <Compile Include="Wine.cs" />
     <Compile Include="Winery.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Indexes\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -36,6 +36,17 @@ namespace CorkCollector.Web.API.Controllers
             return wines;
         }
 
+        public List<Wine> Get(string wineryId, bool onMenu)
+        {
+            List<Wine> wines = new List<Wine>();
+            using (var session = ravenStore.OpenSession())
+            {
+                wines = session.Query<Wine>().Where(x=>x.WineryId==wineryId).ToList();
+            }
+
+            return wines;
+        }
+
         // GET api/wine/id         route: api/wine?id=wineries/[id]     Returns: SPecified wine
         public Wine Get(string id)
         {
@@ -57,6 +68,19 @@ namespace CorkCollector.Web.API.Controllers
                 if(wine.Reviews==null)
                     wine.Reviews = new List<Review>();
                 wine.Reviews.Add(review);
+                session.SaveChanges();
+            }
+
+            var response = new HttpResponseMessage(HttpStatusCode.Created);
+
+            return response;
+        }
+        public HttpResponseMessage Post(Wine newWinery)
+        {
+            Wine wine = newWinery;
+            using (var session = ravenStore.OpenSession())
+            {
+                session.Store(wine);
                 session.SaveChanges();
             }
 

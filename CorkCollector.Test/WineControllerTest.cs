@@ -68,5 +68,30 @@ namespace CorkCollector.Test
             Assert.Equal(review.Rating, testReview.Rating);
             Assert.Equal(review.Text, testReview.Text);
         }
+
+        [Fact]
+        public void WineryPostWine()
+        {
+
+            Wine testWine = new Wine()
+            {
+                Reviews = new List<Review>(),
+                WineId = string.Empty,
+                BottlingYear = 1977,
+                OnTastingMenu = true,
+                WineName = "Shiraz",
+                WinePrice = 30.75,
+                WineryId = "wineries/1-A",
+                WineType = "Red"
+            };
+
+            var response = _wineController.Post(testWine);
+
+            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+
+            var wine = _wineController.Get("wines/1-A");
+
+            Assert.NotNull(wine);
+        }
     }
 }

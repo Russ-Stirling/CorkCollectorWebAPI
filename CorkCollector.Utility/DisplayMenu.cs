@@ -115,6 +115,16 @@ namespace CorkCollector.Utility
                     Console.WriteLine("File does not exist, please use a valid file");
                 }
             }
+
+            if(userSelection.Equals("1"))
+                AddWineries(path);
+            if(userSelection.Equals("2"))
+                AddWines(path);
+            return string.Empty;
+        }
+
+        private void AddWineries(string path)
+        {
             List<Winery> records = new List<Winery>();
 
             using (TextReader fileReader = File.OpenText(path))
@@ -139,11 +149,48 @@ namespace CorkCollector.Utility
 
             foreach (var record in records)
             {
-                x.Store(record);
+                string theID = Guid.NewGuid().ToString();
+                record.Reviews = new List<Review>();
+                record.WineryId = string.Format("wineries/{0}", theID);
+                x.Store(record, string.Format("wineries/{0}", theID));
             }
 
             x.SaveChanges();
-            return string.Empty;
+        }
+
+        private void AddWines(string path)
+        {
+            List<Wine> records = new List<Wine>();
+
+            using (TextReader fileReader = File.OpenText(path))
+            {
+                var csv = new CsvReader(fileReader);
+                records = csv.GetRecords<Wine>().ToList();
+            }
+
+            var Cert = new X509Certificate2();
+            Cert.Import("D:\\CorkCollector\\DBServer\\CorkCollectorTest.pfx", "Cork123", X509KeyStorageFlags.DefaultKeySet);
+            var store = new DocumentStore
+            {
+                Database = "CorkCollector",
+                Urls = new string[] { "https://a.corkcollector.dbs.local.ravendb.net:8080" },
+                Certificate = Cert
+
+            };
+
+            store.Initialize();
+
+            var x = store.OpenSession();
+
+            foreach (var record in records)
+            {
+                string theID = Guid.NewGuid().ToString();
+                record.Reviews = new List<Review>();
+                record.WineId = string.Format("wines/{0}", theID);
+                x.Store(record, string.Format("wines/{0}", theID));
+            }
+
+            x.SaveChanges();
         }
     }
 }
