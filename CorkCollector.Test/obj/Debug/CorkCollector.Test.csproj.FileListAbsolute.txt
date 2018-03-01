@@ -160,3 +160,10 @@ D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\obj\Debug\CorkCollector.
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\obj\Debug\CorkCollector.Test.csproj.CoreCompileInputs.cache
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\obj\Debug\CorkCollector.Test.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\obj\Debug\CorkCollector.Test.pdb
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\bin\Debug\Microsoft.Owin.Security.dll
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\bin\Debug\Microsoft.Owin.Security.xml
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\bin\Debug\Microsoft.Owin.Cors.dll
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\bin\Debug\System.Web.Cors.dll
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Test\bin\Debug\Microsoft.Owin.Cors.xml

@@ -44,6 +44,8 @@ namespace CorkCollector.Web.API.Controllers
                 return errorResult;
             }
 
+            CreateNewUser(userModel.UserName);
+
             return Ok();
         }
 
@@ -86,7 +88,29 @@ namespace CorkCollector.Web.API.Controllers
             return null;
         }
 
+        public void CreateNewUser(string username)
+        {
+            var userId = Guid.NewGuid();
+            var fullId = string.Format("UserProfiles/{0}", userId);
+            UserProfile user = new UserProfile()
+            {
+                UserId = fullId,
+                CellarBottles = new List<CellarBottle>(),
+                CheckIns = new List<string>(),
+                Email = "test@gmail.com",
+                Friends = new List<string>(),
+                PersonalComments = new List<PersonalComment>(),
+                Tastings = new List<string>(),
+                Username = username
+            };
 
+            using (var session = ravenStore.OpenSession())
+            {
+                session.Store(user, fullId);
+                session.SaveChanges();
+            }
+
+        }
 
         //public UserController() : base()
         //{
@@ -95,7 +119,7 @@ namespace CorkCollector.Web.API.Controllers
 
         //public UserController(DocumentStore _ravenStore = null): base(_ravenStore)
         //{
-            
+
         //}
         //// GET api/wine       route: api/wine       returns: All wineries
         //public List<UserProfile> Get()
@@ -123,7 +147,7 @@ namespace CorkCollector.Web.API.Controllers
 
         //public HttpResponseMessage Post(UserProfile newUser)
         //{
-            
+
         //    using (var session = ravenStore.OpenSession())
         //    {
         //        session.Store(newUser);

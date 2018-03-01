@@ -174,3 +174,6 @@ D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\obj\Debug\CorkCollect
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\obj\Debug\CorkCollector.Web.API.csproj.CoreCompileInputs.cache
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\obj\Debug\CorkCollector.Web.API.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\obj\Debug\CorkCollector.Web.API.pdb
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Cors.dll
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Cors.dll
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Cors.xml

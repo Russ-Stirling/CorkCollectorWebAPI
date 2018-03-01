@@ -12,6 +12,7 @@ using Raven.Client.Documents;
 
 namespace CorkCollector.Web.API.Controllers
 {
+    [System.Web.Http.RoutePrefix("api/Wine")]
     public class WineController : CorkCollectorBaseController
     {
         public WineController() : base()

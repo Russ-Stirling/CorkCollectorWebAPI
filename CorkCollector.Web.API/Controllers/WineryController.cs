@@ -12,6 +12,7 @@ using Raven.Client.Documents;
 
 namespace CorkCollector.Web.API.Controllers
 {
+    [System.Web.Http.RoutePrefix("api/Winery")]
     public class WineryController : CorkCollectorBaseController
     {
         public WineryController() : base()
@@ -25,6 +26,7 @@ namespace CorkCollector.Web.API.Controllers
         }
 
         // GET api/winery       route: api/winery       returns: All wineries
+        [System.Web.Http.Authorize]
         public List<Winery> Get()
         {
 
