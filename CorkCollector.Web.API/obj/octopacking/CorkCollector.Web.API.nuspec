@@ -1,14 +1,14 @@
 <package>
   <metadata>
     <id>CorkCollector.Web.API</id>
-    <version>1.2.0.1</version>
+    <version>1.2.0.6</version>
     <authors>rusty_000</authors>
     <owners>rusty_000</owners>
     <tags>OctopusDeploy</tags>
     <licenseUrl>http://example.com</licenseUrl>
     <projectUrl>http://example.com</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>The CorkCollector.Web.API deployment package, built on 2018-02-27</description>
+    <description>The CorkCollector.Web.API deployment package, built on 2018-03-05</description>
     <releaseNotes></releaseNotes>
   </metadata>
   <files>
@@ -18,8 +18,10 @@
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\favicon.ico" target="favicon.ico" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\fonts\glyphicons-halflings-regular.svg" target="fonts\glyphicons-halflings-regular.svg" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Global.asax" target="Global.asax" />
-    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Scripts\bootstrap.js" target="Scripts\bootstrap.js" />
-    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Scripts\bootstrap.min.js" target="Scripts\bootstrap.min.js" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\ApplicationInsights.config" target="ApplicationInsights.config" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\fonts\glyphicons-halflings-regular.woff" target="fonts\glyphicons-halflings-regular.woff" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\fonts\glyphicons-halflings-regular.ttf" target="fonts\glyphicons-halflings-regular.ttf" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\fonts\glyphicons-halflings-regular.eot" target="fonts\glyphicons-halflings-regular.eot" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Areas\HelpPage\Views\Web.config" target="Areas\HelpPage\Views\Web.config" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Areas\HelpPage\Views\Shared\_Layout.cshtml" target="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Areas\HelpPage\Views\Help\ResourceModel.cshtml" target="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
@@ -39,7 +41,8 @@
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" target="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" target="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Areas\HelpPage\Views\Help\Api.cshtml" target="Areas\HelpPage\Views\Help\Api.cshtml" />
-    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\ApplicationInsights.config" target="ApplicationInsights.config" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Scripts\bootstrap.js" target="Scripts\bootstrap.js" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Scripts\bootstrap.min.js" target="Scripts\bootstrap.min.js" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Scripts\jquery-1.10.2.js" target="Scripts\jquery-1.10.2.js" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Scripts\jquery-1.10.2.min.js" target="Scripts\jquery-1.10.2.min.js" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Scripts\modernizr-2.6.2.js" target="Scripts\modernizr-2.6.2.js" />
@@ -55,9 +58,6 @@
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Views\Home\Index.cshtml" target="Views\Home\Index.cshtml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Views\Shared\Error.cshtml" target="Views\Shared\Error.cshtml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Views\Shared\_Layout.cshtml" target="Views\Shared\_Layout.cshtml" />
-    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\fonts\glyphicons-halflings-regular.woff" target="fonts\glyphicons-halflings-regular.woff" />
-    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\fonts\glyphicons-halflings-regular.ttf" target="fonts\glyphicons-halflings-regular.ttf" />
-    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\fonts\glyphicons-halflings-regular.eot" target="fonts\glyphicons-halflings-regular.eot" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\Scripts\jquery-1.10.2.min.map" target="Scripts\jquery-1.10.2.min.map" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\ApplicationInsights.config" target="bin\ApplicationInsights.config" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\CorkCollector.Web.API.dll.config" target="bin\CorkCollector.Web.API.dll.config" />
@@ -161,6 +161,8 @@
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Xml.XPath.XDocument.dll" target="bin\System.Xml.XPath.XDocument.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Antlr3.Runtime.dll" target="bin\Antlr3.Runtime.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\CorkCollector.Data.dll" target="bin\CorkCollector.Data.dll" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\EntityFramework.dll" target="bin\EntityFramework.dll" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\EntityFramework.SqlServer.dll" target="bin\EntityFramework.SqlServer.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Lambda2Js.dll" target="bin\Lambda2Js.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AI.Agent.Intercept.dll" target="bin\Microsoft.AI.Agent.Intercept.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AI.DependencyCollector.dll" target="bin\Microsoft.AI.DependencyCollector.dll" />
@@ -169,16 +171,28 @@
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AI.Web.dll" target="bin\Microsoft.AI.Web.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AI.WindowsServer.dll" target="bin\Microsoft.AI.WindowsServer.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.ApplicationInsights.dll" target="bin\Microsoft.ApplicationInsights.dll" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AspNet.Identity.Core.dll" target="bin\Microsoft.AspNet.Identity.Core.dll" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AspNet.Identity.EntityFramework.dll" target="bin\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AspNet.Identity.Owin.dll" target="bin\Microsoft.AspNet.Identity.Owin.dll" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Cors.dll" target="bin\Microsoft.Owin.Cors.dll" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.dll" target="bin\Microsoft.Owin.dll" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Host.SystemWeb.dll" target="bin\Microsoft.Owin.Host.SystemWeb.dll" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Security.Cookies.dll" target="bin\Microsoft.Owin.Security.Cookies.dll" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Security.dll" target="bin\Microsoft.Owin.Security.dll" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Security.OAuth.dll" target="bin\Microsoft.Owin.Security.OAuth.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Web.Infrastructure.dll" target="bin\Microsoft.Web.Infrastructure.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Newtonsoft.Json.dll" target="bin\Newtonsoft.Json.dll" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Owin.dll" target="bin\Owin.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Raven.Client.dll" target="bin\Raven.Client.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Sparrow.dll" target="bin\Sparrow.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Net.Http.Formatting.dll" target="bin\System.Net.Http.Formatting.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Runtime.CompilerServices.Unsafe.dll" target="bin\System.Runtime.CompilerServices.Unsafe.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Security.Cryptography.Cng.dll" target="bin\System.Security.Cryptography.Cng.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Threading.Tasks.Extensions.dll" target="bin\System.Threading.Tasks.Extensions.dll" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Cors.dll" target="bin\System.Web.Cors.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Helpers.dll" target="bin\System.Web.Helpers.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Http.dll" target="bin\System.Web.Http.dll" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Http.Owin.dll" target="bin\System.Web.Http.Owin.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Http.WebHost.dll" target="bin\System.Web.Http.WebHost.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Mvc.dll" target="bin\System.Web.Mvc.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Optimization.dll" target="bin\System.Web.Optimization.dll" />
@@ -188,13 +202,31 @@
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.WebPages.Razor.dll" target="bin\System.Web.WebPages.Razor.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\WebGrease.dll" target="bin\WebGrease.dll" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\CorkCollector.Data.pdb" target="bin\CorkCollector.Data.pdb" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Antlr3.Runtime.pdb" target="bin\Antlr3.Runtime.pdb" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\EntityFramework.xml" target="bin\EntityFramework.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\EntityFramework.SqlServer.xml" target="bin\EntityFramework.SqlServer.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AI.DependencyCollector.xml" target="bin\Microsoft.AI.DependencyCollector.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AI.ServerTelemetryChannel.xml" target="bin\Microsoft.AI.ServerTelemetryChannel.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AI.Web.xml" target="bin\Microsoft.AI.Web.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AI.WindowsServer.xml" target="bin\Microsoft.AI.WindowsServer.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.ApplicationInsights.xml" target="bin\Microsoft.ApplicationInsights.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AspNet.Identity.Core.xml" target="bin\Microsoft.AspNet.Identity.Core.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AspNet.Identity.EntityFramework.xml" target="bin\Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AspNet.Identity.Owin.xml" target="bin\Microsoft.AspNet.Identity.Owin.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.xml" target="bin\Microsoft.Owin.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Cors.xml" target="bin\Microsoft.Owin.Cors.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Host.SystemWeb.xml" target="bin\Microsoft.Owin.Host.SystemWeb.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Security.xml" target="bin\Microsoft.Owin.Security.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Security.Cookies.xml" target="bin\Microsoft.Owin.Security.Cookies.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Security.OAuth.xml" target="bin\Microsoft.Owin.Security.OAuth.xml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Newtonsoft.Json.xml" target="bin\Newtonsoft.Json.xml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Raven.Client.pdb" target="bin\Raven.Client.pdb" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Net.Http.Formatting.xml" target="bin\System.Net.Http.Formatting.xml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Runtime.CompilerServices.Unsafe.xml" target="bin\System.Runtime.CompilerServices.Unsafe.xml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Threading.Tasks.Extensions.xml" target="bin\System.Threading.Tasks.Extensions.xml" />
-    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Net.Http.Formatting.xml" target="bin\System.Net.Http.Formatting.xml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Helpers.xml" target="bin\System.Web.Helpers.xml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Http.xml" target="bin\System.Web.Http.xml" />
+    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Http.Owin.xml" target="bin\System.Web.Http.Owin.xml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Http.WebHost.xml" target="bin\System.Web.Http.WebHost.xml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Mvc.xml" target="bin\System.Web.Mvc.xml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Optimization.xml" target="bin\System.Web.Optimization.xml" />
@@ -202,11 +234,5 @@
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.WebPages.xml" target="bin\System.Web.WebPages.xml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.WebPages.Deployment.xml" target="bin\System.Web.WebPages.Deployment.xml" />
     <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.WebPages.Razor.xml" target="bin\System.Web.WebPages.Razor.xml" />
-    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Antlr3.Runtime.pdb" target="bin\Antlr3.Runtime.pdb" />
-    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.ApplicationInsights.xml" target="bin\Microsoft.ApplicationInsights.xml" />
-    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AI.DependencyCollector.xml" target="bin\Microsoft.AI.DependencyCollector.xml" />
-    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AI.ServerTelemetryChannel.xml" target="bin\Microsoft.AI.ServerTelemetryChannel.xml" />
-    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AI.WindowsServer.xml" target="bin\Microsoft.AI.WindowsServer.xml" />
-    <file src="D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AI.Web.xml" target="bin\Microsoft.AI.Web.xml" />
   </files>
 </package>

@@ -45,6 +45,7 @@
     <Compile Include="PersonalComment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Review.cs" />
+    <Compile Include="ReviewSubmitModel.cs" />
     <Compile Include="UserProfile.cs" />
     <Compile Include="Wine.cs" />
     <Compile Include="Winery.cs" />

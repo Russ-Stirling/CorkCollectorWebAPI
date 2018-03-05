@@ -51,15 +51,24 @@ namespace CorkCollector.Web.API.Controllers
             return winery;
         }
 
-        public HttpResponseMessage Post(Review review, string wineryId)
+        [System.Web.Http.Route("Review")]
+        public HttpResponseMessage Post(ReviewSubmitModel reviewModel)
         {
             Winery winery;
+            Review review = new Review()
+            {
+                UserId = "fakefornow",
+                UserName = reviewModel.UserName,
+                Text = reviewModel.Text,
+                Rating = reviewModel.Rating
+            };
             using (var session = ravenStore.OpenSession())
             {
-                winery = session.Load<Winery>(wineryId);
+                winery = session.Load<Winery>(reviewModel.SubjectId);
                 if (winery.Reviews == null)
                     winery.Reviews = new List<Review>();
                 winery.Reviews.Add(review);
+                
                 session.SaveChanges();
             }
 

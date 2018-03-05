@@ -113,6 +113,7 @@ D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Applica
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AspNet.Identity.Core.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AspNet.Identity.EntityFramework.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AspNet.Identity.Owin.dll
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Cors.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Host.SystemWeb.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Security.Cookies.dll
@@ -127,6 +128,7 @@ D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Net.Http.F
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Runtime.CompilerServices.Unsafe.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Security.Cryptography.Cng.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Threading.Tasks.Extensions.dll
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Cors.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Helpers.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Http.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Http.Owin.dll
@@ -151,6 +153,7 @@ D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AspNet.
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AspNet.Identity.EntityFramework.xml
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.AspNet.Identity.Owin.xml
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.xml
+D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Cors.xml
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Host.SystemWeb.xml
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Security.xml
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Security.Cookies.xml
@@ -174,6 +177,3 @@ D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\obj\Debug\CorkCollect
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\obj\Debug\CorkCollector.Web.API.csproj.CoreCompileInputs.cache
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\obj\Debug\CorkCollector.Web.API.dll
 D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\obj\Debug\CorkCollector.Web.API.pdb
-D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Cors.dll
-D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\System.Web.Cors.dll
-D:\CorkCollector\CorkCollectorWebAPI\CorkCollector.Web.API\bin\Microsoft.Owin.Cors.xml

@@ -47,15 +47,16 @@ namespace CorkCollector.Test
         public void WinePostReview()
         {
 
-            Review testReview = new Review()
+            ReviewSubmitModel testReview = new ReviewSubmitModel()
             {
+
                 Rating = 4,
                 Text = "This is a test review",
                 UserId = "1-A",
                 UserName = "TestReviewer"
             };
 
-            var response = _wineController.Post(testReview, "wines/1-A");
+            var response = _wineController.Post(testReview);
 
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
 

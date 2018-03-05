@@ -74,21 +74,22 @@ namespace CorkCollector.Test
         public void WineryPostReview()
         {
 
-            Review testReview = new Review()
+            ReviewSubmitModel testReview = new ReviewSubmitModel()
             {
-                Rating = 4,
-                Text = "This is a test review",
-                UserId = "1-A",
-                UserName = "TestReviewer"
+                SubjectId = "wineries/2c7b2ef5-ffb2-408c-b8a1-eb44553cd7d2",
+                Rating = 3,
+                Text = "This is a medium test review for me",
+                UserId = "4-A",
+                UserName = "TestReviewer4"
             };
 
-            var response = _wineryController.Post(testReview, "wineries/1-A");
+            var response = _wineryController.Post(testReview);
 
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
 
-            var winery = _wineryController.Get("wineries/1-A");
+            var winery = _wineryController.Get("wineries/2c7b2ef5-ffb2-408c-b8a1-eb44553cd7d2");
 
-            var review = winery.Reviews.FirstOrDefault(x => x.UserId == "1-A");
+            var review = winery.Reviews.FirstOrDefault(x => x.UserId == "4-A");
 
             Assert.Equal(review.UserId, testReview.UserId);
             Assert.Equal(review.UserName, testReview.UserName);

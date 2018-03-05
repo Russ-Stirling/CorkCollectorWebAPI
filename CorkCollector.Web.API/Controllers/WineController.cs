@@ -60,12 +60,20 @@ namespace CorkCollector.Web.API.Controllers
             return wine;
         }
 
-        public HttpResponseMessage Post(Review review, string wineId)
+        [System.Web.Http.Route("Review")]
+        public HttpResponseMessage Post(ReviewSubmitModel reviewModel)
         {
             Wine wine;
+            Review review = new Review()
+            {
+                UserId = "fakefornow",
+                UserName = reviewModel.UserName,
+                Text = reviewModel.Text,
+                Rating = reviewModel.Rating
+            };
             using (var session = ravenStore.OpenSession())
             {
-                wine = session.Load<Wine>(wineId);
+                wine = session.Load<Wine>(reviewModel.SubjectId);
                 if(wine.Reviews==null)
                     wine.Reviews = new List<Review>();
                 wine.Reviews.Add(review);
