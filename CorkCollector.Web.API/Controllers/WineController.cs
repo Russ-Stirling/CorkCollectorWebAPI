@@ -84,9 +84,9 @@ namespace CorkCollector.Web.API.Controllers
 
             return response;
         }
-        public HttpResponseMessage Post(Wine newWinery)
+        public HttpResponseMessage Post(Wine newWine)
         {
-            Wine wine = newWinery;
+            Wine wine = newWine;
             using (var session = ravenStore.OpenSession())
             {
                 session.Store(wine);

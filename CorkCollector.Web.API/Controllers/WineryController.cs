@@ -77,6 +77,38 @@ namespace CorkCollector.Web.API.Controllers
             return response;
         }
 
+        [System.Web.Http.Route("Checkin")]
+        public HttpResponseMessage Post(CheckInSubmitModel checkin)
+        {
+            
+            using (var session = ravenStore.OpenSession())
+            {
+                var winery = session.Load<Winery>(checkin.WineryId);
+
+                //TODO check against checkin radius
+
+
+                var user = session.Load<UserProfile>(checkin.UserId);
+                if(user.CheckIns==null)
+                    user.CheckIns = new List<CheckIn>();
+                
+                CheckIn newCheckin = new CheckIn()
+                {
+                    WineryName = winery.WineryName,
+                    WineryId = winery.WineryId,
+                    VisitTime = DateTimeOffset.Now
+                };
+
+                user.CheckIns.Add(newCheckin);
+
+                session.SaveChanges();
+            }
+
+            var response = new HttpResponseMessage(HttpStatusCode.Created);
+
+            return response;
+        }
+
         public HttpResponseMessage Post(Winery newWinery)
         {
             Winery winery = newWinery;

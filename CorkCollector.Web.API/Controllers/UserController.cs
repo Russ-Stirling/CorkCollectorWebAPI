@@ -96,12 +96,14 @@ namespace CorkCollector.Web.API.Controllers
             {
                 UserId = fullId,
                 CellarBottles = new List<CellarBottle>(),
-                CheckIns = new List<string>(),
+                CheckIns = new List<CheckIn>(),
                 Email = "test@gmail.com",
                 Friends = new List<string>(),
                 PersonalComments = new List<PersonalComment>(),
                 Tastings = new List<string>(),
-                Username = username
+                Username = username,
+                Name = "Russ Stirling",
+                DateJoined = "September 2017"
             };
 
             using (var session = ravenStore.OpenSession())
@@ -121,43 +123,57 @@ namespace CorkCollector.Web.API.Controllers
         //{
 
         //}
-        //// GET api/wine       route: api/wine       returns: All wineries
-        //public List<UserProfile> Get()
-        //{
-        //    List<UserProfile> users = new List<UserProfile>();
-        //    using (var session = ravenStore.OpenSession())
-        //    {
-        //        users = session.Query<UserProfile>().ToList();
-        //    }
+        // GET api/wine       route: api/wine       returns: All wineries
+        [System.Web.Http.Route("Profile")]
+        public UserProfile Get(string username)
+        {
+            UserProfile user = new UserProfile();
+            using (var session = ravenStore.OpenSession())
+            {
+                user = session.Query<UserProfile>().FirstOrDefault(x=> x.Username==username);
+            }
 
-        //    return users;
-        //}
+            return user;
+        }
 
-        //// GET api/wine/id         route: api/wine?id=wineries/[id]     Returns: SPecified wine
-        //public UserProfile Get(string id)
-        //{
-        //    UserProfile user = new UserProfile();
-        //    using (var session = ravenStore.OpenSession())
-        //    {
-        //        user = session.Load<UserProfile>(id);
-        //    }
+        [System.Web.Http.Route("Tastings")]
+        public List<TastingListItem> Get(string userId, string type)
+        {
+            List<TastingListItem> wines = new List<TastingListItem>();
 
-        //    return user;
-        //}
+            using (var session = ravenStore.OpenSession())
+            {
+                UserProfile user = session.Load<UserProfile>(userId);
+                if (user.Tastings == null || user.Tastings.Count == 0)
+                    return wines;
 
-        //public HttpResponseMessage Post(UserProfile newUser)
-        //{
+                foreach (var wineId in user.Tastings)
+                {
+                    var wine = session.Load<Wine>(wineId);
+                    var winery = session.Load<Winery>(wine.WineryId);
+                    wines.Add(new TastingListItem(wine, winery.WineryName));
+                }
+            }
 
-        //    using (var session = ravenStore.OpenSession())
-        //    {
-        //        session.Store(newUser);
-        //        session.SaveChanges();
-        //    }
+            return wines;
+        }
 
-        //    var response = new HttpResponseMessage(HttpStatusCode.Created);
+        [System.Web.Http.Route("Checkins")]
+        public List<CheckIn> Get(string userId, bool type)
+        {
+            List<CheckIn> checkins = new List<CheckIn>();
 
-        //    return response;
-        //}
+            using (var session = ravenStore.OpenSession())
+            {
+                UserProfile user = session.Load<UserProfile>(userId);
+                if (user.CheckIns == null || user.CheckIns.Count == 0)
+                    return checkins;
+
+                checkins.AddRange(user.CheckIns);
+            }
+
+            return checkins;
+        }
 
         //public HttpResponseMessage Post(string userId, string friendid)
         //{

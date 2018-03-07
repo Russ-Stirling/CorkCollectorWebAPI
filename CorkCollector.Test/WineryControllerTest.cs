@@ -69,6 +69,22 @@ namespace CorkCollector.Test
             Assert.NotNull(winery);
         }
 
+        [Fact]
+        public void WineryPostCheckin()
+        {
+            CheckInSubmitModel checkin = new CheckInSubmitModel()
+            {
+                latitude = -73,
+                Longitude = 43,
+                UserId = "UserProfiles/917a96d2-0a28-4c2b-bb1c-ca7bad5d8a38",
+                WineryId = "wineries/2c7b2ef5-ffb2-408c-b8a1-eb44553cd7d2"
+            };
+
+            var response = _wineryController.Post(checkin);
+            Assert.Equal(HttpStatusCode.Created, response.StatusCode);
+
+        }
+
 
         [Fact]
         public void WineryPostReview()
