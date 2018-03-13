@@ -44,7 +44,7 @@ namespace CorkCollector.Web.API.Controllers
                 return errorResult;
             }
 
-            CreateNewUser(userModel.UserName);
+            CreateNewUser(userModel);
 
             return Ok();
         }
@@ -88,22 +88,62 @@ namespace CorkCollector.Web.API.Controllers
             return null;
         }
 
-        public void CreateNewUser(string username)
+        private string GetMonth(int monthInt)
+        {
+            switch (monthInt)
+            {
+                case 1:
+                    return "January";
+                case 2:
+                    return "February";
+                case 3:
+                    return "March";
+                case 4:
+                    return "April";
+                case 5:
+                    return "May";
+                case 6:
+                    return "June";
+                case 7:
+                    return "July";
+                case 8:
+                    return "August";
+                case 9:
+                    return "September";
+                case 10:
+                    return "October";
+                case 11:
+                    return "November";
+                case 12:
+                    return "December";
+            }
+
+            return monthInt.ToString();
+        }
+
+        public void CreateNewUser(UserModel userModel)
         {
             var userId = Guid.NewGuid();
             var fullId = string.Format("UserProfiles/{0}", userId);
+
+            string DateJoinedDisplay = string.Empty;
+
+            DateTimeOffset now = DateTimeOffset.Now;
+
+            DateJoinedDisplay = string.Format("{0} {1}, {2}", now.Day, GetMonth(now.Month), now.Year);
+
             UserProfile user = new UserProfile()
             {
                 UserId = fullId,
                 CellarBottles = new List<CellarBottle>(),
                 CheckIns = new List<CheckIn>(),
-                Email = "test@gmail.com",
+                Email = userModel.Email,
                 Friends = new List<string>(),
                 PersonalComments = new List<PersonalComment>(),
                 Tastings = new List<string>(),
-                Username = username,
-                Name = "Russ Stirling",
-                DateJoined = "September 2017"
+                Username = userModel.UserName,
+                Name = userModel.Name,
+                DateJoined = DateJoinedDisplay
             };
 
             using (var session = ravenStore.OpenSession())
