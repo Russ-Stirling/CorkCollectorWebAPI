@@ -241,8 +241,11 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="AuthContext.cs" />
     <Compile Include="Controllers\AuthRepository.cs" />
+    <Compile Include="Controllers\CellarController.cs" />
+    <Compile Include="Controllers\CheckinController.cs" />
     <Compile Include="Controllers\CorkCollectorBaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TastingController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WineController.cs" />
     <Compile Include="Controllers\WineryController.cs" />
@@ -311,6 +314,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Cellar\" />
+    <Folder Include="Views\Checkin\" />
+    <Folder Include="Views\Tasting\" />
     <Folder Include="Views\User\" />
     <Folder Include="Views\Winery\" />
     <Folder Include="Views\Wine\" />

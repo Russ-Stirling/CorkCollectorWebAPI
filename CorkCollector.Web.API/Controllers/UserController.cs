@@ -114,16 +114,6 @@ namespace CorkCollector.Web.API.Controllers
 
         }
 
-        //public UserController() : base()
-        //{
-
-        //}
-
-        //public UserController(DocumentStore _ravenStore = null): base(_ravenStore)
-        //{
-
-        //}
-        // GET api/wine       route: api/wine       returns: All wineries
         [System.Web.Http.Route("Profile")]
         public UserProfile Get(string username)
         {

@@ -42,12 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CellarBottle.cs" />
+    <Compile Include="CellarSubmitModel.cs" />
     <Compile Include="CheckIn.cs" />
     <Compile Include="CheckInSubmitModel.cs" />
     <Compile Include="PersonalComment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Review.cs" />
     <Compile Include="ReviewSubmitModel.cs" />
+    <Compile Include="TasteSubmitModel.cs" />
     <Compile Include="TastingListItem.cs" />
     <Compile Include="UserProfile.cs" />
     <Compile Include="Wine.cs" />

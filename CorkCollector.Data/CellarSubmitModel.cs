@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace CorkCollector.Data
 {
-    public class PersonalComment
+    public class CellarSubmitModel
     {
-        public string Text { get; set; }
+        public string UserId { get; set; }
         public string WineId { get; set; }
-        public DateTimeOffset TimeStamp { get; set; }
     }
 }
