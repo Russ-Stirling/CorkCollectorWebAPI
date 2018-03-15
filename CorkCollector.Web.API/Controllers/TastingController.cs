@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
-using System.Web;
-using System.Web.Mvc;
 using CorkCollector.Data;
 
 namespace CorkCollector.Web.API.Controllers
@@ -12,7 +8,7 @@ namespace CorkCollector.Web.API.Controllers
     [System.Web.Http.RoutePrefix("api/Tasting")]
     public class TastingController : CorkCollectorBaseController
     {
-        [System.Web.Http.Route("Tastings")]
+        [System.Web.Http.Route("List")]
         public List<TastingListItem> Get(string userId)
         {
             List<TastingListItem> wines = new List<TastingListItem>();
@@ -34,7 +30,7 @@ namespace CorkCollector.Web.API.Controllers
             return wines;
         }
 
-        [System.Web.Http.Route("Taste")]
+        [System.Web.Http.Route("New")]
         public HttpResponseMessage Post(TasteSubmitModel taste)
         {
             HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.NotFound);

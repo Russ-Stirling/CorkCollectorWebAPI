@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CorkCollector.Data
 {
@@ -12,7 +8,7 @@ namespace CorkCollector.Data
         public List<Review> Reviews { get; set; }
         public bool HasMenu { get; set; }
         public double TastingPrice { get; set; }
-        public float Rating { get; set; }
+        public double? Rating { get; set; }
         public string Address { get; set; }
         public float CheckInRadius { get; set; }
         public string[] HoursOfOperation { get; set; }
