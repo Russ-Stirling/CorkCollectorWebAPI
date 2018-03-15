@@ -12,6 +12,7 @@ namespace CorkCollector.Data
         public string WineryId { get; set; }
         public string WineName { get; set; }
         public string WineType { get; set; }
+        public double? Rating { get; set; }
         public bool OnTastingMenu { get; set; }
         public double WinePrice { get; set; }
         public int BottlingYear { get; set; }

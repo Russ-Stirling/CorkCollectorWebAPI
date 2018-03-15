@@ -16,7 +16,6 @@ namespace CorkCollector.Data
         public List<string> Friends { get; set; }
         public List<CheckIn> CheckIns { get; set; }
         public List<string> Tastings { get; set; }
-        public List<PersonalComment> PersonalComments { get; set; }
         public List<CellarBottle> CellarBottles { get; set; }
         
         

@@ -39,17 +39,20 @@ namespace CorkCollector.Web.API.Controllers
             {
                 UserProfile user = session.Load<UserProfile>(cellarItem.UserId);
                 Wine wine = session.Load<Wine>(cellarItem.WineId);
+                
 
                 if (user != null && wine != null)
                 {
-                    
-                    if(user.CellarBottles==null)
+                    if (user.CellarBottles==null)
                         user.CellarBottles = new List<CellarBottle>();
 
                     if (user.CellarBottles.Any(x => x.WineId == cellarItem.WineId))
                     {
                         var item = user.CellarBottles.FirstOrDefault(x => x.WineId == cellarItem.WineId);
-                        item.IncreaseBottleCount();
+                        item.IncreaseBottleCount(cellarItem.Quantity);
+                        if (!string.IsNullOrEmpty(cellarItem.Notes))
+                            item.PersonalComment = cellarItem.Notes;
+                        
                         if (item.Finished)
                             item.Finished = false;
                         session.SaveChanges();
@@ -57,7 +60,9 @@ namespace CorkCollector.Web.API.Controllers
                         return response;
                     }
 
-                    CellarBottle newItem = new CellarBottle(wine);
+                    Winery winery = session.Load<Winery>(wine.WineryId);
+                    CellarBottle newItem = new CellarBottle(wine, winery.WineryName, cellarItem.Quantity);
+                    newItem.PersonalComment = cellarItem.Notes;
                     user.CellarBottles.Add(newItem);
 
                     session.SaveChanges();
@@ -99,6 +104,32 @@ namespace CorkCollector.Web.API.Controllers
                     return response;
                 }
             }
+            return response;
+        }
+
+        [System.Web.Http.Route("Comment")]
+        public HttpResponseMessage Put(EditPersonalCommentSubmitModel commentUpdate)
+        {
+            HttpResponseMessage response = new HttpResponseMessage(HttpStatusCode.NotFound);
+            using (var session = ravenStore.OpenSession())
+            {
+                UserProfile user = session.Load<UserProfile>(commentUpdate.UserId);
+                if (user != null)
+                {
+
+                    if (user.CellarBottles == null)
+                        return response;
+                    if (user.CellarBottles.All(x => x.WineId != commentUpdate.WineId))
+                        return response;
+
+                    var item = user.CellarBottles.FirstOrDefault(x => x.WineId == commentUpdate.WineId);
+                    item.PersonalComment = commentUpdate.NewComment;
+                    session.SaveChanges();
+                    response = new HttpResponseMessage(HttpStatusCode.OK);
+                    return response;
+                }
+            }
+
             return response;
         }
     }

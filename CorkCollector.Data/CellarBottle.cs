@@ -13,10 +13,11 @@ namespace CorkCollector.Data
 
         }
 
-        public CellarBottle(Wine bottle, int bottleCount=1)
+        public CellarBottle(Wine bottle, string wineryName, int bottleCount=1)
         {
             WineId = bottle.WineId;
             WineName = bottle.WineName;
+            WineryName = wineryName;
             WineType = bottle.WineType;
             WineYear = bottle.BottlingYear;
             BottleCount = bottleCount;
@@ -29,6 +30,11 @@ namespace CorkCollector.Data
             BottleCount++;
         }
 
+        public void IncreaseBottleCount(int incrAmnt)
+        {
+            BottleCount+= incrAmnt;
+        }
+
         public void FinishBottle()
         {
             BottleCount--;
@@ -36,9 +42,11 @@ namespace CorkCollector.Data
         public string WineId { get; set; }
         public string WineName { get; set; }
         public string WineType { get; set; }
+        public string WineryName { get; set; }
         public int WineYear { get; set; }
         public int BottleCount { get; set; }
         public DateTimeOffset PurchaseDate { get; set; }
         public bool Finished { get; set; }
+        public string PersonalComment { get; set; }
     }
 }

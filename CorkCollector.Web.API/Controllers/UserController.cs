@@ -139,7 +139,6 @@ namespace CorkCollector.Web.API.Controllers
                 CheckIns = new List<CheckIn>(),
                 Email = userModel.Email,
                 Friends = new List<string>(),
-                PersonalComments = new List<PersonalComment>(),
                 Tastings = new List<string>(),
                 Username = userModel.UserName,
                 Name = userModel.Name,
