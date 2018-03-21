@@ -245,6 +245,7 @@
     <Compile Include="Controllers\CheckinController.cs" />
     <Compile Include="Controllers\CorkCollectorBaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RecommendationController.cs" />
     <Compile Include="Controllers\TastingController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\WineController.cs" />
@@ -316,6 +317,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Cellar\" />
     <Folder Include="Views\Checkin\" />
+    <Folder Include="Views\Recommendation\" />
     <Folder Include="Views\Tasting\" />
     <Folder Include="Views\User\" />
     <Folder Include="Views\Winery\" />

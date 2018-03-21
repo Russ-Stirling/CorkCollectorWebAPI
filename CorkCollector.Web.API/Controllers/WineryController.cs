@@ -53,7 +53,7 @@ namespace CorkCollector.Web.API.Controllers
             Winery winery;
             Review review = new Review()
             {
-                UserId = "fakefornow",
+                UserId = "Unknown User",
                 UserName = reviewModel.UserName,
                 Text = reviewModel.Text,
                 Rating = reviewModel.Rating
@@ -61,6 +61,11 @@ namespace CorkCollector.Web.API.Controllers
             using (var session = ravenStore.OpenSession())
             {
                 winery = session.Load<Winery>(reviewModel.SubjectId);
+
+                var userId = session.Query<UserProfile>().FirstOrDefault(x => x.Username == reviewModel.UserName);
+                if (userId != null)
+                    review.UserId = userId.UserId;
+
                 if (winery.Reviews == null)
                     winery.Reviews = new List<Review>();
                 winery.Reviews.Add(review);
@@ -75,6 +80,64 @@ namespace CorkCollector.Web.API.Controllers
 
             return response;
         }
+
+        [System.Web.Http.Route("Review")]
+        public HttpResponseMessage Put(ReviewSubmitModel reviewModel)
+        {
+            var response = new HttpResponseMessage(HttpStatusCode.NotFound);
+
+            using (var session = ravenStore.OpenSession())
+            {
+                Winery winery = session.Load<Winery>(reviewModel.SubjectId);
+
+                var review = winery.Reviews.FirstOrDefault(x => x.UserId == reviewModel.UserId);
+
+                review.Rating = reviewModel.Rating;
+                review.Text = reviewModel.Text;
+
+                var rating = winery.Reviews.Average(x => x.Rating);
+                winery.Rating = rating;
+
+                session.SaveChanges();
+
+                response = new HttpResponseMessage(HttpStatusCode.OK);
+            }
+
+            return response;
+        }
+
+        
+        [System.Web.Http.Route("Remove")]
+        public HttpResponseMessage Put(DeleteReviewSubmitModel delModel)
+        {
+            var response = new HttpResponseMessage(HttpStatusCode.NotFound);
+
+            using (var session = ravenStore.OpenSession())
+            {
+                Winery winery = session.Load<Winery>(delModel.SubjectId);
+
+                Review myReview = winery.Reviews.FirstOrDefault(x => x.UserId == delModel.UserId);
+                winery.Reviews.Remove(myReview);
+
+
+                if (winery.Reviews.Count > 0)
+                {
+                    var rating = winery.Reviews.Average(x => x.Rating);
+                    winery.Rating = rating;
+                }
+                else
+                {
+                    winery.Rating = 0;
+                }
+
+                session.SaveChanges();
+
+                response = new HttpResponseMessage(HttpStatusCode.OK);
+            }
+
+            return response;
+        }
+
 
         [System.Web.Http.Route("Checkin")]
         public HttpResponseMessage Post(CheckInSubmitModel checkin)

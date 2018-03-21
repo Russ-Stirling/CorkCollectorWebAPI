@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CorkCollector.Data;
 using CsvHelper;
 using Raven.Client.Documents;

@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
-using CorkCollector.Data;
-using Raven.Client.Documents;
+﻿
 
 namespace CorkCollector.Utility
 {

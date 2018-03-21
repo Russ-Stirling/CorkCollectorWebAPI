@@ -19,7 +19,6 @@ namespace CorkCollector.Web.API.Controllers
 
                 //TODO check against checkin radius
 
-
                 var user = session.Load<UserProfile>(checkin.UserId);
                 if (user.CheckIns == null)
                     user.CheckIns = new List<CheckIn>();

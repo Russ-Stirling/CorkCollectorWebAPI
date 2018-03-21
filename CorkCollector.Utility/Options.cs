@@ -1,7 +1,4 @@
-﻿using System.Text;
-using System.Threading.Tasks;
-using CommandLine;
-using CommandLine.Text;
+﻿using CommandLine;
 
 namespace CorkCollector.Utility
 {
