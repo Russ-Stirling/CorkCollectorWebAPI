@@ -46,7 +46,7 @@ namespace CorkCollector.Web.API
             RavenStore = new DocumentStore
             {
                 Database = "CorkCollector",
-                Urls = new string[] { "https://a.corkcollector.dbs.local.ravendb.net:8080" },
+                Urls = new string[] { "https://a.corkdb.ravendb.community" },
                 Certificate = Cert
             };
 

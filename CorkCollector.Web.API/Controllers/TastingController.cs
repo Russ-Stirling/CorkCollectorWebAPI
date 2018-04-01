@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using CorkCollector.Data;
@@ -16,14 +17,22 @@ namespace CorkCollector.Web.API.Controllers
             using (var session = ravenStore.OpenSession())
             {
                 UserProfile user = session.Load<UserProfile>(userId);
+
+                var wineList = session.Query<Wine>().ToList();
+                var wineryList = session.Query<Winery>().ToList();
+
                 if (user.Tastings == null || user.Tastings.Count == 0)
                     return wines;
 
                 foreach (var wineId in user.Tastings)
                 {
-                    var wine = session.Load<Wine>(wineId);
-                    var winery = session.Load<Winery>(wine.WineryId);
-                    wines.Add(new TastingListItem(wine, winery.WineryName));
+                    var wine = wineList.FirstOrDefault(x=> x.WineId == wineId);
+                    var winery = wineryList.FirstOrDefault(x => x.WineryId == wine.WineryId);
+                    string wineryName = string.Empty;
+                    if (winery!=null)
+                        wineryName = winery.WineryName;
+                        
+                    wines.Add(new TastingListItem(wine, wineryName));
                 }
             }
 
