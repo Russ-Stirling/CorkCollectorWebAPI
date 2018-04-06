@@ -10,9 +10,11 @@ namespace CorkCollector.Web.API.Controllers
     [System.Web.Http.RoutePrefix("api/Recommendation")]
     public class RecommendationController : CorkCollectorBaseController
     {
-        public Wine Get(string userId)
+        [System.Web.Http.Route("List")]
+        public List<TastingListItem> Get(string userId)
         {
             Wine bestChoice = null;
+            List <TastingListItem> results = new List<TastingListItem>();
 
             using (var session = ravenStore.OpenSession())
             {
@@ -21,26 +23,40 @@ namespace CorkCollector.Web.API.Controllers
                 if (user != null)
                 {
                     var wineList = session.Query<Wine>().ToList();
-
-                    var backupWine = wineList.FirstOrDefault(x => x.Rating == null);
-
+                    var backupWines = wineList.Where(x => x.Rating == null).ToList();
                     wineList.RemoveAll(x => x.Rating == null);
-
                     wineList = wineList.OrderByDescending(x => x.Rating).ToList();
 
-                    bestChoice = wineList.FirstOrDefault(x =>
-                        x.Reviews.All(y => y.UserId != userId) && !user.Tastings.Contains(x.WineId));
+                    for (int i = 0; i < 5; i++)
+                    {
+                        bestChoice = wineList.FirstOrDefault(x =>
+                            x.Reviews.All(y => y.UserId != userId) && !user.Tastings.Contains(x.WineId));
 
-                    if (bestChoice == null)
-                        bestChoice = backupWine;
+                        if (bestChoice == null)
+                            bestChoice = backupWines.FirstOrDefault();
+
+                        if (bestChoice == null)
+                            return results;
+
+                        var Winery = session.Load<Winery>(bestChoice.WineryId);
+
+                        string wineryName = string.Empty;
+
+                        if (Winery != null && !string.IsNullOrEmpty(Winery.WineryName))
+                            wineryName = Winery.WineryName;
+
+                        results.Add(new TastingListItem(bestChoice, wineryName));
+
+
+                    }
 
 
                 }
 
-                
+
             }
 
-            return bestChoice;
+            return results;
         }
 
 
