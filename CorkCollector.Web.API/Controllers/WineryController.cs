@@ -106,7 +106,6 @@ namespace CorkCollector.Web.API.Controllers
             return response;
         }
 
-        
         [System.Web.Http.Route("Remove")]
         public HttpResponseMessage Put(DeleteReviewSubmitModel delModel)
         {
@@ -137,7 +136,6 @@ namespace CorkCollector.Web.API.Controllers
 
             return response;
         }
-
 
         [System.Web.Http.Route("Checkin")]
         public HttpResponseMessage Post(CheckInSubmitModel checkin)

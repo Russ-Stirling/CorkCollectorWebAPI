@@ -8,6 +8,7 @@ using System.Web.Http;
 using CorkCollector.Data;
 using CorkCollector.Web.API.Models;
 using Microsoft.AspNet.Identity;
+using Raven.Client.Documents;
 
 namespace CorkCollector.Web.API.Controllers
 {
@@ -17,6 +18,11 @@ namespace CorkCollector.Web.API.Controllers
         private AuthRepository _repo = null;
 
         public UserController() : base()
+        {
+            _repo = new AuthRepository();
+        }
+
+        public UserController(DocumentStore _ravenStore = null) : base(_ravenStore)
         {
             _repo = new AuthRepository();
         }

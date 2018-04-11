@@ -33,7 +33,15 @@ namespace CorkCollector.Web.API.Controllers
                             x.Reviews.All(y => y.UserId != userId) && !user.Tastings.Contains(x.WineId));
 
                         if (bestChoice == null)
+                        {
                             bestChoice = backupWines.FirstOrDefault();
+                            backupWines.Remove(bestChoice);
+                        }
+                        else
+                        {
+                            wineList.Remove(bestChoice);
+                        }
+
 
                         if (bestChoice == null)
                             return results;
@@ -46,6 +54,7 @@ namespace CorkCollector.Web.API.Controllers
                             wineryName = Winery.WineryName;
 
                         results.Add(new TastingListItem(bestChoice, wineryName));
+                        
 
 
                     }
